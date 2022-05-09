@@ -1,5 +1,5 @@
 from flask import Flask, render_template,request,jsonify
-# from flask_cors import CORS, cross_origin
+from flask_cors import CORS, cross_origin
 
 import pickle
 import numpy as np
@@ -24,6 +24,7 @@ def home():
     return "get request"
 
 @app.route('/BodyMeasurements', methods=['POST'])
+@cross_origin()
 def man():
     print("hello broo")
     print("here at req")
