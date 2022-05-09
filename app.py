@@ -1,5 +1,5 @@
 from flask import Flask, render_template,request,jsonify
-from flask_cors import CORS, cross_origin
+# from flask_cors import CORS, cross_origin
 
 import pickle
 import numpy as np
@@ -16,7 +16,7 @@ kurta = pickle.load(open('kurta.pkl', 'rb'))
 
 
 app = Flask(__name__)
-CORS(app)
+# CORS(app)
 
 @app.route("/hello")
 def home():
@@ -24,12 +24,11 @@ def home():
     return "get request"
 
 
-@app.route('/BodyMeasurements', methods=['POST'])
-@cross_origin()
+@app.route('/BodyMeasurements', methods=['GET'])
 def man():
     print("hello broo")
     print("here at req")
-    data=request.json
+    data=request.args
     print(data)
     # age weight height gender hip waist ratio body type 
     data1 =int( request.json['age'])
