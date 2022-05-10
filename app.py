@@ -64,23 +64,23 @@ def man():
             TSize= "Extra Small"
         else:
             TSize= "Small"
-    elif (chestsize>32 and chestsize<36):
+    elif (chestsize>32 and chestsize<=36):
         if(shouldersize<45):
             TSize= "Small"
         else:
             TSize= "Medium"
-    elif (chestsize>36 and chestsize<40):
+    elif (chestsize>36 and chestsize<=40):
         if(shouldersize<55):
             TSize= "Medium"
         else:
             TSize= "Large"
-    elif (chestsize>40 and chestsize<44):
+    elif (chestsize>40 and chestsize<=44):
         if(shouldersize<60):
             TSize= "Large"
         else:
             TSize= "Extra Large"
         
-    elif (chestsize>44 and chestsize<48):
+    elif (chestsize>44 and chestsize<=48):
         if(shouldersize<65):
             TSize= "Extra Large"
         else:
