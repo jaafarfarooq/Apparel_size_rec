@@ -21,15 +21,11 @@ CORS(app)
 
 @app.route("/")
 def home():
-    print("here at home")
     return "get request"
 
 @app.route('/BodyMeasurements', methods=['POST'])
 def man():
-    print("hello broo")
-    print("here at req")
     data=request.json
-    print(data)
     # age weight height gender hip waist ratio body type 
     data1 =int( request.json['age'])
     data2 = int(request.json['weight'])
@@ -38,12 +34,10 @@ def man():
     data5 = int( request.json['bodyType'])
     data6 =float(request.json['hipWaistRatio'])
 
-    print("asdad",data1)
     print('This is error output', file=sys.stderr)
     print('This is standard output', file=sys.stdout)
 
     arr = np.array([[data1, data2, data3, data4,data5,data6]])
-    print("asd",arr)
     chestpred = chest.predict(arr)
     waistpred = waist.predict(arr)
     shoulderpred = shoulder.predict(arr)
@@ -56,8 +50,6 @@ def man():
     collarsize=math.ceil(collarpred[0][0]/25.4)
     hipssize=math.ceil(hipspred[0][0]/25.4)
     kurtasize=math.ceil(kurtapred[0][0]/25.4)
-    print("chestpred:",chestpred)
-    print("chest:",chestsize )
     Size='hello'
     TSize=""
     if (chestsize<32):
@@ -113,14 +105,11 @@ def man():
         prewaist="38"
     elif(waistsize>38):
         prewaist="40"
-    Size="Predicted Sizes Tshirt size: "+TSize+"\n ___Pants inseam: "+ length+"\n _Pants waist: "+prewaist+ "___Kurta Length"+str(kurtasize)
-    print(Size)
-    print("chest"+ str(chestsize))
 
     obj={
         "chest": chestsize,
         "hip":hipssize,
-        "wasit":waistsize,
+        "waist":waistsize,
         "shoulder":shouldersize,
         "collar":collarsize,
         "Tsize":TSize
