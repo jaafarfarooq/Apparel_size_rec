@@ -36,7 +36,6 @@ def man():
     data4 = args.get('gender')
     data5 = args.get('bodyType')
     data6 =float(args.get('hipWaistRatio'))
-
     print("asdad",data1)
     print('This is error output', file=sys.stderr)
     print('This is standard output', file=sys.stdout)
@@ -124,6 +123,7 @@ def man():
         "wasit":waistsize,
         "shoulder":shouldersize,
         "collar":collarsize,
+        "inseam":length,
         "Tsize":TSize
     }
     response = jsonify(obj)
